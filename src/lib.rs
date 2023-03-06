@@ -28,19 +28,19 @@ impl SearchResult {
         })
     }
 
-    #[ffi_service_method(on_panic = "return_default")]
+    #[ffi_service_method(on_panic = "undefined_behavior")]
     pub fn get_result_detail(
         &self,
         index: u64,
-    ) -> SearchResultDetail {
+    ) -> *mut SearchResultDetail {
         println!("get_result_detail {}", unsafe{ self as *const _ as u64 });
 
         println!("index={}, a={}", index, self.a);
 
-        SearchResultDetail {
+        Box::into_raw(Box::new(SearchResultDetail {
             a: String::default(),
             b: false
-        }
+        }))
     }
 }
 

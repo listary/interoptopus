@@ -17,9 +17,9 @@ namespace ConsoleApp
         static Interop()
         {
             var api_version = Interop.my_api_guard();
-            if (api_version != 3658951630320689033ul)
+            if (api_version != 2161450135464147307ul)
             {
-                throw new TypeLoadException($"API reports hash {api_version} which differs from hash in bindings (3658951630320689033). You probably forgot to update / copy either the bindings or the library.");
+                throw new TypeLoadException($"API reports hash {api_version} which differs from hash in bindings (2161450135464147307). You probably forgot to update / copy either the bindings or the library.");
             }
         }
 
